@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper below."
+title: "SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence"
+repository-code: "https://github.com/gandanlee/sccm"
+license: MIT
+authors:
+  - family-names: Lee
+    given-names: Gyeonggwan
+    affiliation: "Kakao Mobility Corp.; Korea University"
+  - family-names: Im
+    given-names: Eunsoo
+    affiliation: "Kakao Mobility Corp."
+  - family-names: Hong
+    given-names: Seunghwan
+    affiliation: "Kakao Mobility Corp."
+  - family-names: Suh
+    given-names: Junghun
+    affiliation: "Kakao Mobility Corp."
+preferred-citation:
+  type: conference-paper
+  title: "SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence"
+  authors:
+    - family-names: Lee
+      given-names: Gyeonggwan
+    - family-names: Im
+      given-names: Eunsoo
+    - family-names: Hong
+      given-names: Seunghwan
+    - family-names: Suh
+      given-names: Junghun
+  collection-title: "Asian Conference on Computer Vision (ACCV)"
+  year: 2026

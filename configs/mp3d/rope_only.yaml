@@ -1,0 +1,74 @@
+# Tab. 2 row R2a --- chart-naive scaffold + yaw-periodic RoPE only.
+#
+# Cumulative ablation step 1: the topology prior alone. The tangent-plane bias
+# and the log-area covisibility correction stay off, so the delta against
+# chart_naive.yaml isolates the RoPE contribution (0.229 -> 0.267 PCK@1deg).
+# Protocol is identical to every other row: EDM-fair Protocol B, 1M samples.
+model:
+  pretrained_backbone: false
+  attenuate_cert: false
+  covis_gated_matching:
+    n_cross_blocks: 4
+    n_heads: 8
+    dim: 512
+    ffn_ratio: 4
+    temp: 0.1
+    matching_mode: "dual_softmax"
+    lambda1: 1.0
+    lambda2: 1.0
+    epsilon: 0.05
+    n_iter: 10
+    covis_hidden: 128
+    covis_init_logit: 4.0
+    covis_head_type: "sphere_covis"
+    sphere_covis:
+      tangent_attention: {enabled: false}                       # T off
+      rope:              {enabled: true, H: 32, W: 64, lon_int_freq_max: 16, lat_theta_base: 10000.0}  # R on
+      jacobian:          {enabled: false}                       # LVC off (= AAC off)
+      sh_pe:             {enabled: false}
+      sfp_pe:            {enabled: false}
+      geodesic_bias:     {enabled: false}
+      lat_temp:          {enabled: false}
+      smk:               {enabled: false}
+      yaw_cyclic:        {enabled: false}
+      cycle_covis:       {enabled: false}
+      sma:               {enabled: false}
+      mmm:               {enabled: false}
+      pole_pool:         {enabled: false}
+      seam_cyclic:       {enabled: false}
+
+loss:
+  ce_weight: 0.01
+  local_dist: {1: 4, 2: 4, 4: 8, 8: 8}
+  local_largest_scale: 8
+  depth_interpolation_mode: "bilinear"
+  relative_depth_error_threshold: 0.05
+  alpha: 0.5
+  c: 1e-4
+  lat_weight_enabled: false                # match exp000 vanilla loss form
+
+data:
+  min_overlap_easy: 0.01
+  min_overlap_hard: 0.3
+  max_overlap: 1.0
+  use_horizontal_flip_aug: true
+  use_yaw_aug: true                        # ★ Protocol B: EDM-fair independent θ_A, θ_B
+
+optimizer:
+  encoder_lr_base: 5e-6
+  decoder_lr_base: 1e-4
+  weight_decay: 0.01
+
+scheduler:
+  milestone_fraction: 0.9
+
+training:
+  grad_clip_norm: 0.01
+  grad_scaler_growth_interval: 1000000
+  num_workers: 8
+  checkpoint_dir: "runs/mp3d/rope_only/"
+
+wandb:
+  base_url: "http://localhost:8080"
+  log_images_every_eval: false
+  num_vis_samples: 4

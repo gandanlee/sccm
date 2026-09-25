@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence. ACCV 2026.">
+  <meta name="keywords" content="SCCM, dense feature matching, equirectangular, ERP, 360 panorama, spherical geometry, ACCV 2026">
+  <meta property="og:title" content="SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence">
+  <meta property="og:description" content="ACCV 2026">
+  <meta property="og:image" content="https://gandanlee.github.io/sccm/static/images/pipeline.png">
+  <meta property="og:url" content="https://gandanlee.github.io/sccm/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/page.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23363636' stroke-width='7'/%3E%3Cellipse cx='50' cy='50' rx='17' ry='42' fill='none' stroke='%23363636' stroke-width='5'/%3E%3Cline x1='8' y1='50' x2='92' y2='50' stroke='%23363636' stroke-width='5'/%3E%3C/svg%3E">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1 class="title">SCCM: Spherically Consistent Coarse Matching<br>for ERP Dense Feature Correspondence</h1>
+    <p class="venue">ACCV 2026</p>
+    <p class="authors">
+      <span>Gyeonggwan Lee<sup>1,2</sup></span>
+      <span>Eunsoo Im<sup>1</sup></span>
+      <span>Seunghwan Hong<sup>1</sup></span>
+      <span>Junghun Suh<sup>1</sup></span>
+    </p>
+    <p class="affils"><span><sup>1</sup>Kakao Mobility Corp.</span><span><sup>2</sup>Korea University</span></p>
+
+    <div class="buttons">
+      <a class="button" href="static/paper/SCCM_ACCV2026.pdf">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 7V3.5L18.5 9zM8 13h8v1.5H8zm0 3h8v1.5H8zm0-6h3v1.5H8z"/></svg>Paper</a>
+      <a class="button" href="static/paper/SCCM_ACCV2026_supplementary.pdf">
+        <svg viewBox="0 0 24 24"><path d="M16.5 6v11.5a4 4 0 0 1-8 0V5a2.5 2.5 0 0 1 5 0v10.5a1 1 0 0 1-2 0V6H10v9.5a2.5 2.5 0 0 0 5 0V5a4 4 0 0 0-8 0v12.5a5.5 5.5 0 0 0 11 0V6z"/></svg>Supplementary</a>
+      <a class="button" href="https://github.com/gandanlee/sccm">
+        <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.870-1.37-.53-1.330-1.28-1.690-1.28-1.690-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.170c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>Code</a>
+      <a class="button" href="https://huggingface.co/gandan-lee/sccm">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-3.5 7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 18c-2.6 0-4.8-1.6-5.6-4h11.2c-.8 2.4-3 4-5.6 4z"/></svg>Models</a>
+      <span class="button disabled">
+        <svg viewBox="0 0 24 24"><path d="M4 3h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg>arXiv (soon)</span>
+    </div>
+  </div>
+</header>
+
+<section class="teaser">
+  <div class="container">
+    <figure>
+      <img src="static/images/pipeline.png" alt="SCCM pipeline">
+      <figcaption><b>TL;DR.</b> Dense matchers trained on ordinary photos break on 360&deg; equirectangular
+        (ERP) images. SCCM corrects ERP's topological, metric, and area distortions inside the coarse matcher,
+        at the interface where each one enters, and leaves the encoder, refiner, and loss unchanged.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container narrow abstract">
+    <h2>Abstract</h2>
+    <p>Equirectangular projection (ERP) is the standard representation for 360&deg; imagery, and robust dense
+      feature matching on ERP underpins panoramic stereo, view synthesis, and omnidirectional SLAM. Dense matchers
+      trained on flat images degrade systematically on ERP because the chart introduces three coupled
+      distortions&mdash;topological, metric, and area&mdash;that standard coarse matching and visibility estimation
+      do not explicitly model. We show that correcting the three distortions at the coarse-stage interfaces where
+      they arise&mdash;pairwise distortions in attention, per-pixel distortion in covisibility gating&mdash;improves
+      PCK@1&deg; from 0.229 to 0.275 on Matterport3D under a fixed coarse scaffold, with the refiner architecture
+      unchanged&mdash;our central result.</p>
+    <p>Concretely, SCCM (Spherically Consistent Coarse Matching) augments a chart-na&iuml;ve
+      cross-attention/dual-softmax coarse matcher with two sphere-derived priors: <b>Spherical Positional
+      Attention (SPA)</b> pairs a yaw-periodic RoPE (topology) with a tangent-plane bias (metric), and
+      <b>Area-Aware Covisibility (AAC)</b> applies a pre-sigmoid log-area correction (area). The chart-na&iuml;ve
+      scaffold serves as a controlled reference, separating the scaffold-replacement effect from the
+      spherical-prior effect. Instantiated in the RoMa&nbsp;V1 framework with the same frozen encoder, refiner
+      architecture, and loss, SCCM also outperforms the ERP-native EDM (0.163) and an ERP-retrained RoMa&nbsp;V1
+      (0.198) under a unified ERP dense matching protocol, while perspective-trained matchers largely fail on ERP.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Method</h2>
+    <div class="narrow" style="margin:0 auto">
+      <p>ERP distorts the sphere in three ways. The left and right image edges are neighbours on the sphere
+        (<b>topology</b>); equal pixel offsets span different angles at different latitudes (<b>metric</b>);
+        polar pixels cover far less of the sphere than equatorial ones (<b>area</b>). The first two concern
+        pairs of locations, so SCCM corrects them in the coarse attention logits. The third concerns single
+        pixels, so it is corrected in the covisibility gate.</p>
+    </div>
+
+    <div class="demo">
+      <div class="demo-head">
+        <h4>Interactive: the ERP metric stretch</h4>
+        <p>Drag the latitude from the south pole (&minus;90&deg;) to the north pole (+90&deg;). A window of fixed
+          pixel size on the ERP image covers a patch of the sphere that shrinks with cos&phi;.</p>
+      </div>
+      <div class="demo-body">
+        <canvas id="erpCanvas" width="900" height="380"></canvas>
+        <div class="demo-controls">
+          <label for="latSlider">Latitude &phi;</label>
+          <input type="range" id="latSlider" min="-90" max="90" value="0" step="1">
+          <div class="demo-scale"><span>&minus;90&deg;</span><span>0&deg;</span><span>+90&deg;</span></div>
+          <div class="demo-readout">
+            <div><span class="ro-num" id="roLat">0&deg;</span><span class="ro-lab">latitude</span></div>
+            <div><span class="ro-num" id="roCos">1.00&times;</span><span class="ro-lab">true width and area of the window, cos&phi;</span></div>
+            <div><span class="ro-num" id="roInv">1.00&times;</span><span class="ro-lab">pixels needed for a fixed angle, 1/cos&phi;</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="demo-foot">The tangent-plane bias in SPA accounts for this stretch in attention; the log-area term in
+        AAC accounts for the shrinking area in the covisibility gate.</p>
+    </div>
+
+    <h3>Spherical Positional Attention (SPA)</h3>
+    <figure>
+      <img class="w90" src="static/images/spa.png" alt="Spherical Positional Attention">
+    </figure>
+    <div class="two-col">
+      <div>
+        <h4>Yaw-periodic RoPE &middot; topology</h4>
+        <p>Integer longitude frequencies make the relative phase exactly 2&pi;-periodic, so tokens on either
+          side of the ERP seam stay adjacent.</p>
+      </div>
+      <div>
+        <h4>Tangent-plane bias &middot; metric</h4>
+        <p>The planar chart offset is replaced by the spherical log-map offset in the query's tangent plane,
+          giving a geodesic-aware attention bias.</p>
+      </div>
+    </div>
+
+    <h3>Area-Aware Covisibility (AAC)</h3>
+    <figure>
+      <img class="w90" src="static/images/aac.png" alt="Area-Aware Covisibility">
+    </figure>
+    <div class="narrow" style="margin:14px auto 0">
+      <p style="font-size:.96rem;color:var(--ink-soft)">A log-area term derived from the ERP area element,
+        &alpha;&nbsp;log&nbsp;cos&phi;, is added to the covisibility logit before the sigmoid, down-weighting
+        pixel-overrepresented polar candidates.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2>Results</h2>
+
+    <h3>Comparison with prior matchers</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th rowspan="2">Method</th><th colspan="2">Matterport3D<br><span class="m">indoor</span></th><th colspan="2">Stanford2D3D<br><span class="m">indoor, zero-shot</span></th><th colspan="2">Holo360D<br><span class="m">outdoor</span></th></tr>
+          <tr><th>PCK@1&deg;&uarr;</th><th>MAE&deg;&darr;</th><th>PCK@1&deg;&uarr;</th><th>MAE&deg;&darr;</th><th>PCK@1&deg;&uarr;</th><th>MAE&deg;&darr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RoMa&nbsp;V2 <span class="m">perspective, zero-shot</span></td><td>0.040</td><td>36.10</td><td>0.043</td><td>42.15</td><td>&ndash;</td><td>&ndash;</td></tr>
+          <tr><td>SphereGlue <span class="m">ERP, sparse</span></td><td>0.028</td><td>64.50</td><td>0.034</td><td>67.96</td><td>&ndash;</td><td>&ndash;</td></tr>
+          <tr><td>EDM <span class="m">ERP, released weights</span></td><td>0.163</td><td>16.78</td><td>0.104</td><td>35.70</td><td>&ndash;</td><td>&ndash;</td></tr>
+          <tr><td>RoMa&nbsp;V1 <span class="m">retrained on ERP</span></td><td>0.198</td><td>6.60</td><td>0.167</td><td>17.80</td><td>0.322</td><td>5.66</td></tr>
+          <tr><td>Chart-na&iuml;ve scaffold <span class="m">ours, no sphere priors</span></td><td>0.229</td><td>5.68</td><td>0.179</td><td>18.86</td><td>0.331</td><td>5.02</td></tr>
+          <tr class="ours"><td>SCCM</td><td>0.275</td><td>5.36</td><td>0.229</td><td>17.09</td><td>0.357</td><td>4.94</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Angular error on the unit sphere. Matterport3D (indoor): 15,682 test pairs. Stanford2D3D (indoor): 8,744 pairs,
+      Matterport3D checkpoints used as is. Holo360D (outdoor, in-the-wild): 8,000 pairs, each model trained from its
+      Matterport3D checkpoint under one protocol. Full metrics are in the paper.</p>
+
+    <h3>Controlled ablation on the fixed scaffold (Matterport3D, indoor)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Configuration</th><th>PCK@1&deg;&uarr;</th><th>PCK@5&deg;&uarr;</th><th>MAE&deg;&darr;</th><th>Median&deg;&darr;</th></tr></thead>
+        <tbody>
+          <tr><td>Chart-na&iuml;ve scaffold</td><td>0.229</td><td>0.769</td><td>5.68</td><td>2.23</td></tr>
+          <tr><td>&nbsp;&nbsp;<span class="m">control: EDM absolute positional encoding</span></td><td>0.224</td><td>0.756</td><td>5.97</td><td>2.31</td></tr>
+          <tr><td>&nbsp;&nbsp;<span class="m">control: standard RoPE</span></td><td>0.236</td><td>0.764</td><td>6.79</td><td>2.17</td></tr>
+          <tr><td>+ Yaw-periodic RoPE</td><td>0.267</td><td>0.796</td><td>5.87</td><td>1.93</td></tr>
+          <tr><td>+ Tangent-plane bias (= SPA)</td><td>0.266</td><td>0.799</td><td>5.58</td><td>1.95</td></tr>
+          <tr class="ours"><td>+ Log-area correction (= SCCM)</td><td>0.275</td><td>0.806</td><td>5.36</td><td>1.88</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">All rows share one training protocol. The scaffold &rarr; SCCM margin reproduces on three
+      training seeds (+4.6 / +5.3 / +4.9&nbsp;pp PCK@1&deg;).</p>
+
+    <h3>Accuracy across the sphere (Matterport3D, indoor)</h3>
+    <figure>
+      <img src="static/images/pck_vs_latitude.png" alt="PCK by latitude and longitude">
+      <figcaption>PCK@1&deg; by absolute latitude (left) and longitude (right). The margin grows toward the poles,
+        and SCCM drops least near the ERP seam.</figcaption>
+    </figure>
+
+    <h3>Downstream geometry (Matterport3D, indoor)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Method</th><th>Pose AUC@5&deg;&uarr;</th><th>Pose AUC@20&deg;&uarr;</th><th>Recon. F@10cm&uarr;</th><th>Recon. Acc. (m)&darr;</th></tr></thead>
+        <tbody>
+          <tr><td>EDM</td><td>7.97</td><td>29.51</td><td>27.5</td><td>1.452</td></tr>
+          <tr><td>RoMa&nbsp;V1 <span class="m">retrained on ERP</span></td><td>11.12</td><td>47.42</td><td>30.7</td><td>0.884</td></tr>
+          <tr><td>Chart-na&iuml;ve scaffold</td><td>13.66</td><td>51.76</td><td>32.7</td><td>0.787</td></tr>
+          <tr class="ours"><td>SCCM</td><td>17.41</td><td>55.09</td><td>35.5</td><td>0.772</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">11,574 test pairs where every method yields at least 200 confident matches. Reconstruction
+      triangulates matches under the ground-truth pose.</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>Interactive 3D Reconstructions</h2>
+    <div class="pc-wrap">
+      <div class="pc-bar">
+        <button class="pc-nav" id="pcPrev" type="button" aria-label="Previous scene">&#10094;</button>
+        <span class="pc-counter" id="pcCounter">&ndash;&thinsp;/&thinsp;&ndash;</span>
+        <button class="pc-nav" id="pcNext" type="button" aria-label="Next scene">&#10095;</button>
+        <span class="pc-scene" id="pcScene"></span>
+        <span class="pc-hint">drag to orbit &middot; scroll to zoom &middot; &larr; &rarr; to switch</span>
+      </div>
+      <div class="pc-3col">
+        <div class="pc-panel">
+          <div class="pc-label">Ground truth</div>
+          <div class="pc-metric pc-metric-empty">&mdash;</div>
+          <div id="pcViewer-gt" class="pc-viewer-sub"></div>
+        </div>
+        <div class="pc-panel">
+          <div class="pc-label">EDM</div>
+          <div class="pc-metric" id="pcMetric-edm">&nbsp;</div>
+          <div id="pcViewer-edm" class="pc-viewer-sub"></div>
+        </div>
+        <div class="pc-panel pc-panel-ours">
+          <div class="pc-label">SCCM (ours)</div>
+          <div class="pc-metric pc-metric-ours" id="pcMetric-sccm">&nbsp;</div>
+          <div id="pcViewer-sccm" class="pc-viewer-sub"></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Ten Matterport3D (indoor) test pairs from different scenes, selected to show the difference clearly
+      (illustrative, not a random sample). Ground truth back-projects the source panorama with the reference depth;
+      EDM and SCCM triangulate their own dense matches under the ground-truth pose. The three panels share one viewpoint.</p>
+  </div>
+</section>
+
+<section class="alt" id="bibtex">
+  <div class="container narrow">
+    <h2>BibTeX</h2>
+    <div class="bibtex">
+      <button class="copy-btn" id="copyBib" type="button">Copy</button>
+<pre id="bibText">@inproceedings{lee2026sccm,
+  title     = {{SCCM}: Spherically Consistent Coarse Matching
+               for {ERP} Dense Feature Correspondence},
+  author    = {Lee, Gyeonggwan and Im, Eunsoo and
+               Hong, Seunghwan and Suh, Junghun},
+  booktitle = {Asian Conference on Computer Vision (ACCV)},
+  year      = {2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>This work builds on <a href="https://github.com/Parskatt/RoMa">RoMa</a> and uses the
+      <a href="https://niessner.github.io/Matterport/">Matterport3D</a>,
+      <a href="http://buildingparser.stanford.edu/dataset.html">Stanford2D3D</a>, and
+      <a href="https://arxiv.org/abs/2604.22482">Holo360D</a> datasets.<br>
+      Code: <a href="https://github.com/gandanlee/sccm">github.com/gandanlee/sccm</a></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><img src="" alt=""></div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copyBib');
+    btn.addEventListener('click', function () {
+      var t = document.getElementById('bibText').textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () {
+        btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+      }).catch(function () {});
+    });
+    var lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+    document.querySelectorAll('figure img').forEach(function (im) {
+      im.addEventListener('click', function () { lbImg.src = im.src; lb.classList.add('open'); });
+    });
+    lb.addEventListener('click', function () { lb.classList.remove('open'); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('open'); });
+  })();
+</script>
+<script src="static/js/demo.js"></script>
+<script type="importmap">
+{ "imports": { "three": "./static/js/three.module.js" } }
+</script>
+<script type="module" src="static/js/viewer.js"></script>
+</body>
+</html>

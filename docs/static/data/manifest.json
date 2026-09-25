@@ -1,0 +1,122 @@
+[
+  {
+    "i": 12,
+    "scene": "jtcxE69GiFV",
+    "overlap": 0.45,
+    "pck_sccm": 0.244,
+    "pck_edm": 0.0,
+    "gap": 0.244,
+    "acc_sccm": 0.265,
+    "acc_edm": 1.762,
+    "f10_sccm": 0.224,
+    "f10_edm": 0.034
+  },
+  {
+    "i": 9,
+    "scene": "5ZKStnWn8Zo",
+    "overlap": 0.45,
+    "pck_sccm": 0.25,
+    "pck_edm": 0.0,
+    "gap": 0.25,
+    "acc_sccm": 0.244,
+    "acc_edm": 1.355,
+    "f10_sccm": 0.581,
+    "f10_edm": 0.137
+  },
+  {
+    "i": 4,
+    "scene": "yqstnuAEVhm",
+    "overlap": 0.59,
+    "pck_sccm": 0.443,
+    "pck_edm": 0.045,
+    "gap": 0.398,
+    "acc_sccm": 0.067,
+    "acc_edm": 0.202,
+    "f10_sccm": 0.834,
+    "f10_edm": 0.277
+  },
+  {
+    "i": 2,
+    "scene": "RPmz2sHmrrY",
+    "overlap": 0.45,
+    "pck_sccm": 0.568,
+    "pck_edm": 0.107,
+    "gap": 0.461,
+    "acc_sccm": 0.092,
+    "acc_edm": 0.238,
+    "f10_sccm": 0.686,
+    "f10_edm": 0.217
+  },
+  {
+    "i": 1,
+    "scene": "fzynW3qQPVF",
+    "overlap": 0.45,
+    "pck_sccm": 0.518,
+    "pck_edm": 0.021,
+    "gap": 0.497,
+    "acc_sccm": 0.077,
+    "acc_edm": 0.23,
+    "f10_sccm": 0.777,
+    "f10_edm": 0.322
+  },
+  {
+    "i": 17,
+    "scene": "UwV83HsGsw3",
+    "overlap": 0.59,
+    "pck_sccm": 0.224,
+    "pck_edm": 0.028,
+    "gap": 0.196,
+    "acc_sccm": 0.14,
+    "acc_edm": 0.49,
+    "f10_sccm": 0.6,
+    "f10_edm": 0.146
+  },
+  {
+    "i": 6,
+    "scene": "YVUC4YcDtcY",
+    "overlap": 0.52,
+    "pck_sccm": 0.31,
+    "pck_edm": 0.024,
+    "gap": 0.286,
+    "acc_sccm": 0.165,
+    "acc_edm": 0.478,
+    "f10_sccm": 0.381,
+    "f10_edm": 0.138
+  },
+  {
+    "i": 0,
+    "scene": "wc2JMjhGNzB",
+    "overlap": 0.73,
+    "pck_sccm": 0.581,
+    "pck_edm": 0.068,
+    "gap": 0.513,
+    "acc_sccm": 0.129,
+    "acc_edm": 0.234,
+    "f10_sccm": 0.632,
+    "f10_edm": 0.293
+  },
+  {
+    "i": 15,
+    "scene": "2t7WUuJeko7",
+    "overlap": 0.51,
+    "pck_sccm": 0.333,
+    "pck_edm": 0.128,
+    "gap": 0.205,
+    "acc_sccm": 0.113,
+    "acc_edm": 0.188,
+    "f10_sccm": 0.66,
+    "f10_edm": 0.323
+  },
+  {
+    "i": 18,
+    "scene": "WYY7iVyf5p8",
+    "overlap": 0.52,
+    "pck_sccm": 0.236,
+    "pck_edm": 0.069,
+    "gap": 0.168,
+    "acc_sccm": 0.143,
+    "acc_edm": 0.221,
+    "f10_sccm": 0.693,
+    "f10_edm": 0.429
+  }
+]

@@ -4,9 +4,9 @@
 
 **ACCV 2026**
 
-Gyeonggwan Lee<sup>1,2</sup> · Eunsoo Im<sup>1</sup> · Seunghwan Hong<sup>1</sup> · Junghun Suh<sup>1</sup>
+Gyeonggwan Lee<sup>1,2</sup> · Eunsoo Im<sup>1</sup> · Seunghwan Hong<sup>1</sup> · Junghun Suh<sup>1,✉</sup>
 
-<sup>1</sup>Kakao Mobility Corp. &nbsp; <sup>2</sup>Korea University
+<sup>1</sup>Kakao Mobility Corp. &nbsp; <sup>2</sup>Korea University &nbsp; ✉ Corresponding author
 
 [![Project Page](https://img.shields.io/badge/Project-Page-0a7ea4)](https://gandanlee.github.io/sccm/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b)](paper/SCCM_ACCV2026.pdf)

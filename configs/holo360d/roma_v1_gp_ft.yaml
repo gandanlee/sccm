@@ -1,0 +1,49 @@
+# Holo360D outdoor fine-tune of the ERP-retrained RoMa V1 (V1-GP), started
+# from its Matterport3D checkpoint (Tab. 1(c) and Supp. Sec. P, "RoMa V1" row).
+#
+# Shared fine-tuning protocol: 25,000 optimizer steps (200k samples on 8 GPUs),
+# learning-rate scale 0.1, same augmentation and loss, model-only warm start.
+model:
+  pretrained_backbone: false
+  attenuate_cert: false
+  # No covis_gated_matching block — build.py V1 GP fallback hits:
+  #     gp16 = GP(CosKernel, T=0.2, ..., basis="fourier")
+  #     decoder = Decoder(coordinate_decoder, gps, proj, conv_refiner, ...)
+  # which is the V1 paper architecture.
+
+loss:
+  ce_weight: 0.01
+  local_dist: {1: 4, 2: 4, 4: 8, 8: 8}
+  local_largest_scale: 8
+  depth_interpolation_mode: "bilinear"
+  relative_depth_error_threshold: 0.05
+  alpha: 0.5
+  c: 1e-4
+  lat_weight_enabled: false                 # vanilla V1 loss form (no cos(lat) weighting)
+
+data:
+  min_overlap_easy: 0.01
+  min_overlap_hard: 0.3
+  max_overlap: 1.0
+  use_horizontal_flip_aug: true
+  use_yaw_aug: true                         # ★ Protocol B: EDM-fair independent θ_A, θ_B
+
+optimizer:
+  encoder_lr_base: 5e-6
+  decoder_lr_base: 1e-4
+  weight_decay: 0.01
+
+scheduler:
+  milestone_fraction: 0.9
+
+training:
+  grad_clip_norm: 0.01
+  grad_scaler_growth_interval: 1000000
+  num_workers: 8
+  init_checkpoint: "checkpoints/mp3d/roma_v1_gp.pth"
+  checkpoint_dir: "runs/holo360d/roma_v1_gp/"
+
+wandb:
+  base_url: "http://localhost:8080"
+  log_images_every_eval: false
+  num_vis_samples: 4

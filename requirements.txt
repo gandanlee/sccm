@@ -1,0 +1,16 @@
+torch
+einops
+torchvision
+opencv-python
+kornia
+albumentations
+loguru
+tqdm
+matplotlib
+h5py
+wandb
+timm
+poselib
+fused-local-corr>=0.2.2; platform_system == "Linux"
+numpy
+pyyaml

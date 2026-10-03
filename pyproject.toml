@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sccm"
+version = "1.0.0"
+description = "Spherically Consistent Coarse Matching for ERP dense feature correspondence (ACCV 2026)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Gyeonggwan Lee" },
+    { name = "Eunsoo Im" },
+    { name = "Seunghwan Hong" },
+    { name = "Junghun Suh" },
+]
+keywords = [
+    "dense feature matching",
+    "equirectangular projection",
+    "360 images",
+    "omnidirectional vision",
+    "spherical geometry",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "torch>=2.0",
+    "torchvision",
+    "numpy",
+    "pyyaml",
+    "einops",
+    "opencv-python",
+    "albumentations",
+    "kornia",
+    "loguru",
+    "tqdm",
+    "matplotlib",
+    "h5py",
+    "wandb",
+    "timm",
+    "poselib",
+    "fused-local-corr>=0.2.2; platform_system == 'Linux'",  # CUDA kernel; other platforms use the built-in PyTorch path
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/gandanlee/sccm"
+Paper = "https://github.com/gandanlee/sccm/blob/main/paper/SCCM_ACCV2026.pdf"
+
+[tool.setuptools.packages.find]
+include = ["sccm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

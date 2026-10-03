@@ -1,0 +1,81 @@
+# ─────────────────────────────────────────────────────────────
+#  Private working material — present in the folder, never pushed.
+#  Copy the whole directory to another machine and the paper can be
+#  finished there; `git push` publishes only the public subset.
+# ─────────────────────────────────────────────────────────────
+# LaTeX sources, rebuttal, reviews, figure data
+_work/
+# released via Hugging Face Hub, not git (14 GB)
+checkpoints/
+# scratch
+_capture.json
+_pytest.out
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ── Experiment tracking ──
+wandb/
+runs/
+lightning_logs/
+
+# ── Model weights & large artifacts ──
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.npz
+*.npy
+*.h5
+
+# ── Datasets ──
+/data/
+/datasets/
+*.tar
+*.tar.gz
+*.zip
+
+# ── LaTeX build products ──
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+
+# ── Secrets ──
+.env
+.env.*
+*.key
+*.pem
+*_token*
+credentials*
+.netrc
+.wandb_netrc
+
+# ── OS / editor ──
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ── Keep these despite the rules above ──
+!paper/*.pdf
+!scripts/data/**
+
+# re-exclude caches that the negation above pulled back in
+scripts/data/**/__pycache__/

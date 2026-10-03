@@ -1,0 +1,187 @@
+/* SCCM project page — conventional academic layout */
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-faint: #7a7a7a;
+  --line: #e5e5e5;
+  --bg-alt: #f7f7f8;
+  --link: #3273dc;
+  --ours: #c0392b;
+  --max: 960px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 820px; }
+
+/* ---------- header ---------- */
+.hero { text-align: center; padding: 40px 0 10px; }
+.title {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 2.15rem; line-height: 1.2; font-weight: 700;
+  margin: 0 auto; max-width: 900px; letter-spacing: -.01em;
+}
+.venue {
+  margin: 8px 0 0; font-size: 1.15rem; font-weight: 600; color: var(--ink-soft);
+}
+.authors { margin: 10px 0 0; font-size: 1.08rem; }
+.authors span { white-space: nowrap; margin: 0 .45em; }
+.authors sup, .affils sup { font-size: .68em; }
+.affils { margin: 6px 0 0; color: var(--ink-soft); font-size: 1rem; }
+.affils span { margin: 0 .6em; white-space: nowrap; }
+
+.buttons { margin: 16px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.button {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 18px; border-radius: 999px;
+  background: #363636; color: #fff; font-size: .95rem; font-weight: 500;
+}
+.button:hover { background: #1f1f1f; text-decoration: none; }
+.button svg { width: 17px; height: 17px; fill: currentColor; }
+.button.disabled { background: #b5b5b5; cursor: default; }
+
+/* ---------- sections ---------- */
+section { padding: 22px 0; }
+section.alt { background: var(--bg-alt); }
+h2 {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0 0 12px;
+}
+h3 { font-size: 1.08rem; font-weight: 700; margin: 20px 0 8px; }
+p { margin: 0 0 14px; }
+.abstract p { text-align: justify; }
+
+figure { margin: 0; }
+figure img {
+  display: block; width: 100%; height: auto; border-radius: 6px;
+  cursor: zoom-in;
+}
+figcaption { margin-top: 10px; color: var(--ink-soft); font-size: .93rem; text-align: center; }
+.teaser figcaption { text-align: left; font-size: 1rem; color: var(--ink); }
+.teaser figcaption b { font-weight: 700; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 10px; }
+.two-col h4 { margin: 0 0 6px; font-size: 1.02rem; }
+.two-col p { font-size: .96rem; color: var(--ink-soft); }
+
+/* ---------- tables ---------- */
+.table-wrap { overflow-x: auto; margin: 6px 0 8px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+thead th {
+  font-weight: 700; text-align: center; padding: 5px 8px;
+  border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
+}
+thead tr + tr th { border-top: 0; font-weight: 600; font-size: .85rem; color: var(--ink-soft); }
+tbody td { text-align: center; padding: 4px 8px; border-bottom: 1px solid var(--line); }
+tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
+th:first-child, td:first-child { text-align: left; }
+td .m { color: var(--ink-faint); font-size: .85em; }
+tr.ours td { font-weight: 700; background: #fdf3f2; }
+.note { font-size: .88rem; color: var(--ink-faint); margin-top: 6px; }
+
+/* ---------- bibtex ---------- */
+.bibtex { position: relative; }
+.bibtex pre {
+  margin: 0; padding: 18px 20px; background: #f5f5f5; border-radius: 6px;
+  font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: .85rem;
+  line-height: 1.55; overflow-x: auto; white-space: pre;
+}
+.copy-btn {
+  position: absolute; top: 10px; right: 10px;
+  font: 500 .8rem "Noto Sans", sans-serif; padding: 4px 11px;
+  border: 1px solid #d0d0d0; border-radius: 5px; background: #fff; cursor: pointer;
+}
+.copy-btn:hover { background: #eee; }
+
+footer { padding: 30px 0 44px; text-align: center; color: var(--ink-faint); font-size: .88rem; }
+
+/* ---------- 3D gallery ---------- */
+.pc-wrap { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.pc-bar {
+  display: flex; align-items: center; gap: 9px; padding: 9px 14px;
+  border-bottom: 1px solid var(--line); background: #fafafa;
+}
+.pc-nav {
+  width: 30px; height: 30px; flex: none; display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; color: #fff; background: #363636; border: 0; border-radius: 50%; cursor: pointer;
+}
+.pc-nav:hover { background: #1f1f1f; }
+.pc-counter { font-family: "JetBrains Mono", monospace; font-size: .85rem; font-weight: 600; min-width: 58px; text-align: center; }
+.pc-scene { font-size: .8rem; color: var(--ink-faint); }
+.pc-hint { font-size: .78rem; color: var(--ink-faint); margin-left: auto; }
+.pc-3col { display: grid; grid-template-columns: repeat(3, 1fr); }
+.pc-panel { display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+.pc-panel:last-child { border-right: 0; }
+.pc-label { text-align: center; padding: 7px 0 2px; font-size: .88rem; font-weight: 700; }
+.pc-panel-ours .pc-label { color: var(--ours); }
+.pc-metric {
+  text-align: center; padding: 0 6px 7px; min-height: 1.6em;
+  font-family: "JetBrains Mono", monospace; font-size: .74rem; color: var(--ink-faint);
+  border-bottom: 1px solid var(--line);
+}
+.pc-metric-ours { color: var(--ours); }
+.pc-metric-empty { opacity: .5; }
+.pc-metric b { font-weight: 700; }
+.pc-viewer-sub {
+  position: relative; width: 100%; height: 290px; background: #1f2333;
+  background-image: radial-gradient(circle at 50% 36%, rgba(255,255,255,.07), transparent 62%);
+}
+.pc-viewer-sub canvas { display: block; width: 100%; height: 100%; }
+.pc-loading, .pc-fail {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.65); font-size: .85rem; font-family: "JetBrains Mono", monospace;
+}
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.88);
+  display: none; align-items: center; justify-content: center; padding: 32px; cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; border-radius: 6px; background: #fff; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .title { font-size: 1.75rem; }
+  .two-col { grid-template-columns: 1fr; gap: 8px; }
+  .pc-3col { grid-template-columns: 1fr; }
+  .pc-panel { border-right: 0; border-bottom: 1px solid var(--line); }
+  .pc-viewer-sub { height: 260px; }
+  .pc-hint, .pc-scene { display: none; }
+}
+
+/* ---------- ERP demo ---------- */
+.demo { margin: 14px 0 4px; border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; background: #fff; }
+.demo-head h4 { margin: 0 0 4px; font-size: 1.02rem; }
+.demo-head p { margin: 0 0 10px; font-size: .93rem; color: var(--ink-soft); }
+.demo-body { display: block; }
+#erpCanvas { width: 100%; height: auto; display: block; border-radius: 6px; background: #fafafa; border: 1px solid var(--line); }
+.demo-controls label { font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-faint); }
+.demo-controls input[type="range"] { width: 100%; margin: 10px 0 2px; accent-color: var(--link); }
+.demo-scale { display: flex; justify-content: space-between; font-size: .75rem; color: var(--ink-faint); margin-bottom: 12px; }
+.demo-readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.demo-readout > div { display: flex; flex-direction: column; padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fafafa; }
+.ro-num { font-size: 1.1rem; font-weight: 700; color: var(--link); font-variant-numeric: tabular-nums; }
+.ro-lab { font-size: .76rem; color: var(--ink-faint); }
+.demo-foot { margin: 10px 0 0; font-size: .9rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .demo-body { grid-template-columns: 1fr; } }
+
+.demo-body { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; align-items: center; }
+.demo-controls .demo-readout { grid-template-columns: 1fr; }
+figure img.w90 { width: 90%; margin: 0 auto; }
+p { margin: 0 0 10px; }
+figcaption { margin-top: 6px; }
+.note { margin-top: 4px; }
